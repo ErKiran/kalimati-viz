@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vegetable Prices</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+  <div id="container" style="width: 100%; height: 400px;"></div>
+
+  <script>
+    // Sample vegetable prices data for 5 days
+    var vegetablePrices = [
+      {
+        name: 'Carrots',
+        data: [
+          [new Date('2023-05-21').getTime(), 3.50],
+          [new Date('2023-05-22').getTime(), 4.20],
+          [new Date('2023-05-23').getTime(), 3.80],
+          [new Date('2023-05-24').getTime(), 3.60],
+          [new Date('2023-05-25').getTime(), 4.10]
+        ]
+      },
+      {
+        name: 'Tomatoes',
+        data: [
+          [new Date('2023-05-21').getTime(), 2.80],
+          [new Date('2023-05-22').getTime(), 3.10],
+          [new Date('2023-05-23').getTime(), 3.20],
+          [new Date('2023-05-24').getTime(), 3.40],
+          [new Date('2023-05-25').getTime(), 3.10]
+        ]
+      },
+      {
+        name: 'Broccoli',
+        data: [
+          [new Date('2023-05-21').getTime(), 2.50],
+          [new Date('2023-05-22').getTime(), 2.80],
+          [new Date('2023-05-23').getTime(), 2.90],
+          [new Date('2023-05-24').getTime(), 2.70],
+          [new Date('2023-05-25').getTime(), 2.80]
+        ]
+      }
+    ];
+
+    // Create the chart
+    Highcharts.chart('container', {
+      title: {
+        text: 'Daily Vegetable Prices'
+      },
+      xAxis: {
+        type: 'datetime',
+        title: {
+          text: 'Date'
+        }
+      },
+      yAxis: {
+        title: {
+          text: 'Price'
+        }
+      },
+      series: vegetablePrices.map(function (vegetable) {
+        return {
+          name: vegetable.name,
+          data: vegetable.data
+        };
+      })
+    });
+  </script>
+</body>
+</html>
